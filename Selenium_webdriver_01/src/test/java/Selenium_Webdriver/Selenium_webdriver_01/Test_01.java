@@ -18,6 +18,8 @@ public class Test_01 extends Excel_Library
 		  System.setProperty("webdriver.chrome.driver", cr.getChromePath()); 
 		
 		  driver = new ChromeDriver(); 
+		  
+		  driver.manage().window().maximize();
 
 		  driver.get(cr.getURL());  //this code is added to get the URL
 		  
