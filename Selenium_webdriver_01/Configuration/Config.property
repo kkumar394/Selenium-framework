@@ -1,0 +1,3 @@
+ChromeDriver= C:\\Users\\kkumar\\Desktop\\Selenium\\Chrome\\chromedriver.exe
+URL=https://www.google.com/
+ExcelPath=C:\\Users\\kkumar\\Desktop\\Selenium\\Excel Files\\Excel_data.xlsx
