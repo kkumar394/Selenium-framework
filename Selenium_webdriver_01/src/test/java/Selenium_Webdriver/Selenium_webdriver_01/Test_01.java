@@ -19,9 +19,9 @@ public class Test_01 extends Excel_Library
 		
 		  driver = new ChromeDriver(); 
 
-		  driver.get(cr.getURL());  
+		  driver.get(cr.getURL());  //this code is added to get the URL
 		  
-		  Utils.captureScreenshot(driver, "Capture_googlepage");
+		  Utils.captureScreenshot(driver, "Capture_googlepage");// to capture screenshot
 
 		  Thread.sleep(2000);  // Let the user actually see something!     
 
