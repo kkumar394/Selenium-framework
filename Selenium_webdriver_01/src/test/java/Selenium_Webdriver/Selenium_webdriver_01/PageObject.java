@@ -15,26 +15,29 @@ public  class PageObject {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(name= "q")
-	WebElement search;
+	@FindBy(name= "email")
+	WebElement Username;
 	
-	@FindBy(name= "btnK")
-	WebElement SearchButton;
+	@FindBy(name= "pass")
+	WebElement Password;
 	
-	public void search()
+	@FindBy(name= "login")
+	WebElement Login;
+	
+	public void Uname(String Uname)
 	{
-		search.sendKeys("Selenium Webdriver java");
-		search.sendKeys(Keys.ENTER);
+		Username.sendKeys(Uname);
 	}
 	
 
-	public void searchbutton()
+	public void Pwd(String Pass)
 	{
-		SearchButton.click();
+		Password.sendKeys(Pass);
 	}
 	
-	
-	
-
+	public void Login()
+	{
+		Login.click();
+	}
 	
 }
