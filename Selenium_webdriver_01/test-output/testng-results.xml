@@ -2,28 +2,44 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-07-05T13:57:53 CEST" name="Default suite" finished-at="2021-07-05T13:58:19 CEST" duration-ms="26595">
+  <suite started-at="2021-07-07T13:28:30 CEST" name="Suite" finished-at="2021-07-07T13:28:57 CEST" duration-ms="27016">
     <groups>
     </groups>
-    <test started-at="2021-07-05T13:57:53 CEST" name="Default test" finished-at="2021-07-05T13:58:19 CEST" duration-ms="26595">
+    <test started-at="2021-07-07T13:28:30 CEST" name="Test_01" finished-at="2021-07-07T13:28:57 CEST" duration-ms="27016">
       <class name="Selenium_Webdriver.Selenium_webdriver_01.Test_01">
-        <test-method signature="Test_Google(java.lang.String,java.lang.String)[pri:0, instance:Selenium_Webdriver.Selenium_webdriver_01.Test_01@7bab3f1a]" started-at="2021-07-05T13:57:54 CEST" name="Test_Google" data-provider="excelData" finished-at="2021-07-05T13:58:19 CEST" duration-ms="25438" status="PASS">
+        <test-method is-config="true" signature="extentReports()[pri:0, instance:[Test_01 passed=0 failed=0 skipped=0]]" started-at="2021-07-07T13:28:29 CEST" name="extentReports" finished-at="2021-07-07T13:28:30 CEST" duration-ms="324" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- extentReports -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:[Test_01 passed=0 failed=0 skipped=0]]" started-at="2021-07-07T13:28:30 CEST" name="setUp" finished-at="2021-07-07T13:28:45 CEST" duration-ms="15837" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="Test_Google(java.lang.String,java.lang.String)[pri:0, instance:[Test_01 passed=0 failed=0 skipped=0]]" started-at="2021-07-07T13:28:47 CEST" name="Test_Google" data-provider="excelData" finished-at="2021-07-07T13:28:55 CEST" duration-ms="8591" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[krisshpa]]>
+                <![CDATA[Admin]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[aA9871943907@]]>
+                <![CDATA[Admin123]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Test_Google -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:[Test_01 passed=0 failed=0 skipped=0]]" started-at="2021-07-07T13:28:55 CEST" name="tearDown" finished-at="2021-07-07T13:28:57 CEST" duration-ms="1377" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="ExtentReportEnd()[pri:0, instance:[Test_01 passed=0 failed=0 skipped=0]]" started-at="2021-07-07T13:28:57 CEST" name="ExtentReportEnd" finished-at="2021-07-07T13:28:57 CEST" duration-ms="488" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ExtentReportEnd -->
       </class> <!-- Selenium_Webdriver.Selenium_webdriver_01.Test_01 -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Test_01 -->
+  </suite> <!-- Suite -->
 </testng-results>

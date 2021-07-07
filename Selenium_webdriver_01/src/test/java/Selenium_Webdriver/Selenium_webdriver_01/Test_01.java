@@ -1,6 +1,7 @@
 package Selenium_Webdriver.Selenium_webdriver_01;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -10,44 +11,62 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class Test_01 //extends Excel_Library
-{
-	WebDriver driver;
-	PageObject pg;
-	@Test(dataProvider = "excelData")
-	public void Test_Google(String User, String pwd) throws Throwable {
-		  
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+
+import junit.framework.Assert;
+
+public class Test_01 extends BaseClass
+{	
+
+@Test(dataProvider = "excelData")
+public void Test_Google(String User, String pwd) throws Exception {
 		
-		  ConfigReader cr =new ConfigReader();  
 		
-		  System.setProperty("webdriver.chrome.driver", cr.getChromePath()); 
+			test=extent.createTest("Test OpenMRS Application"); 
+			PageObject pg= new PageObject(driver); 
+			String Capture_googlepath =  Utils.captureScreenshot(driver, "Capture_googlepage");// to capture screenshot
+			test.log(Status.PASS, "Screenshot taken for the Login Page");
+			test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath(Capture_googlepath).build());
+			test.log(Status.PASS, "test started");
+			driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);   
+
+			pg.Uname(User);
+			test.log(Status.PASS, "Username Entered");
+			pg.Pwd(pwd);
+		  	test.log(Status.PASS, "Password Entered");
+		  	pg.Locationlist("Isolation Ward");
+		  	test.log(Status.PASS,"Location Selected");
+		  	pg.Login();
+		  	test.log(Status.PASS,"Clicked on Login button");
+		  
+		  	Thread.sleep(5000);  // Let the user actually see something!
+		  	String Result_Appeared = Utils.captureScreenshot(driver, "Result appeared");
+		  	test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath(Result_Appeared).build());
+		  	test.log(Status.PASS, "Screenshot taken for the Home page");
+		  	String Actual_Title = driver.getTitle();
+		  	System.out.println(Actual_Title);
+		  	String Expected_Title = "Home";
+		  	
+		  	if(Actual_Title.equals(Expected_Title)) 
+		  	{
+		  		test.log(Status.PASS, "Test Case Pass for the page");
+		  	}
+		  	else
+		  	{
+		  		test.log(Status.FAIL, "test Fail");
+		  		String Test_fail;
+		  		Test_fail = Utils.captureScreenshot(driver, "Wrong title");
+				test.fail("Test fail as title wrong", MediaEntityBuilder.createScreenCaptureFromPath(Test_fail).build());
+		  	}
 		
-		  driver = new ChromeDriver(); 
-		  pg= new PageObject(driver);
-		  
-		  driver.manage().window().maximize();
-
-		  driver.get(cr.getURL());  //this code is added to get the URL
-		  
-		  Utils.captureScreenshot(driver, "Capture_googlepage");// to capture screenshot
-
-		  Thread.sleep(2000);  // Let the user actually see something!     
-
-		  pg.Uname(User);
-		  pg.Pwd(pwd);
-		  pg.Login();
-		  
-		  Utils.captureScreenshot(driver, "Result appeared");
-
-		  Thread.sleep(2000);  // Let the user actually see something!     
-
-		  driver.quit();  
 		
-	} 
+	}
 	
-	@DataProvider(name="excelData")
-	String[][] passData ()throws IOException
-	{
+@DataProvider(name="excelData")
+String[][] passData ()throws IOException
+{
 		int rownum = xlUtils.getRowCount("Sheet1");
 		int colCount = xlUtils.getColCount("Sheet1", rownum);
 		
@@ -60,7 +79,7 @@ public class Test_01 //extends Excel_Library
 			}
 		}
 		return data;
-	}
+}
 		
 	
 }

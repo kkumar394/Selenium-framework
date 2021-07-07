@@ -6,6 +6,8 @@
       <class name="Selenium_Webdriver.Selenium_webdriver_01.Test_01">
         <methods>
           <include name="Test_Google"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
         </methods>
       </class> <!-- Selenium_Webdriver.Selenium_webdriver_01.Test_01 -->
     </classes>

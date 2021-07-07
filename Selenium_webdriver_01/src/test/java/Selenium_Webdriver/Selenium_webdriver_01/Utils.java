@@ -15,19 +15,23 @@ import org.openqa.selenium.io.FileHandler;
 public class Utils {
 
 	
-	public static void captureScreenshot(WebDriver driver, String screenshotName)throws Exception {
-		
-		try {
+	public static String captureScreenshot(WebDriver driver, String screenshotName)throws Exception {
 			TakesScreenshot ts =(TakesScreenshot) driver;
 			File Source =ts.getScreenshotAs(OutputType.FILE);
-			FileHandler.copy(Source, new File("./Screenshots/"+ screenshotName+".png"));
-			System.out.println("ScreenShot taken");
+			String path=(System.getProperty("user.dir")+"/Screenshots/"+screenshotName+".png");
 			
+			File destination = new File(path);
+		try {
+			
+			FileHandler.copy(Source, destination);
+			System.out.println("ScreenShot taken");
 			
 			}
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 			}
+		System.out.println(path);
+		return path;
 	}
 	
 	
